@@ -1,0 +1,83 @@
+﻿<Window x:Class="prototype.UserEritor.Desktop.Views.Dialogs.CreateUserDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prototype.UserEritor.Desktop.Views.Dialogs"
+        xmlns:converters="clr-namespace:prototype.UserEritor.Desktop.Converters"
+        mc:Ignorable="d"
+        Title="Создание учетной записи" Height="450" Width="500" WindowStartupLocation="CenterScreen" SizeToContent="Height">
+    <Window.Resources>
+        <converters:NullToCollapsedConverter x:Key="NullToCollapsedConverter"/>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                  
+                    <Setter Property="ToolTip" 
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                            Path=(Validation.Errors)[0].ErrorContent}"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <TextBlock Text="Добавление учетной записи" FontWeight="DemiBold" HorizontalAlignment="Center" FontSize="18"/>     
+        <StackPanel Margin="50,0" Grid.ColumnSpan="2">
+            <TextBlock Text="{Binding Message}"                        
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       Foreground="Red"
+                       TextWrapping="Wrap"
+                      Visibility="{Binding Message, Converter={StaticResource NullToCollapsedConverter}}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Фамилия :" HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Column="1"  Margin="5" Text="{Binding LastName, ValidatesOnDataErrors=True}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Имя :" HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Column="1"  Margin="5" Text="{Binding FirstName, ValidatesOnDataErrors=True}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Отчество :" HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Column="1"  Margin="5" Text="{Binding MiddleName}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="EMAIL :" HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Column="1"  Margin="5" Text="{Binding EmailAddress, ValidatesOnDataErrors=True}"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Телефон :" HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Column="1"  Margin="5" Text="{Binding PhoneNumber}"/>
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>                    
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="2" Content="Сохранить" Margin="5" Width="80" Command="{Binding SaveCommand}"/>
+                <Button Grid.Column="1" Content="Отмена" Margin="5"  Width="80" IsCancel="True"/>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Window>
