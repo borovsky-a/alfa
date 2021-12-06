@@ -138,6 +138,7 @@
     <Compile Include="Common\PropertyChangedNotifier.cs" />
     <Compile Include="Common\Response.cs" />
     <Compile Include="Common\TableViewModel.cs" />
+    <Compile Include="Converters\PaginationSelectedItemInverseConverster.cs" />
     <Compile Include="Model\TableColumnTemplateName.cs" />
     <Compile Include="Model\TableDefinition.cs" />
     <Compile Include="Model\TablePagingDefinition.cs" />

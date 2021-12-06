@@ -113,12 +113,12 @@ namespace prototype.UserEritor.Desktop
             IsError = !response.IsValid;
             Paging.NavsCount = response.NavsCount;
             Paging.PageCount = response.PageCount;
-            Paging.PageIndex = response.PageIndex;
-            Paging.PageNumbers = response.PageNumbers;
+            Paging.PageIndex = response.PageIndex;      
             Paging.PageSize = response.PageSize;
             Paging.StartPageIndex = response.StartPageIndex;
-            Paging.StartPageIndex = response.StartPageIndex;
+            Paging.StopPageIndex = response.StopPageIndex;
             Paging.TotalRecordCount = response.TotalRecordCount;
+            Paging.PageNumbers = response.PageNumbers;
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 
@@ -133,6 +134,9 @@ namespace prototype.UserEritor.Desktop
                 {
                     _pageNumbers = value;
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(SelectedIndex));
+                    OnPropertyChanged(nameof(GoToFirstVisible));
+                    OnPropertyChanged(nameof(GoToLastVisible)); 
                 }
             }
         }
@@ -152,6 +156,9 @@ namespace prototype.UserEritor.Desktop
                 }
             }
         }
+
+        public bool GoToFirstVisible => PageCount > NavsCount && StartPageIndex > Math.Floor(((decimal)NavsCount / 2) - 1);
+        public bool GoToLastVisible => PageCount > NavsCount && StopPageIndex < PageCount;
 
         /// <summary>
         ///     Возвращает индекс индекатора, номер которого совпадает с текущей страницей
