@@ -12,7 +12,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <views:ThemeSelectorView DataContext="{Binding ThemeSelector}" Grid.Row="0"/>
+        <views:ThemeSelectorView DataContext="{Binding ThemeSelector}" Grid.Row="0"  Background="{DynamicResource BackGroundColor}"/>
         <views:UserListView DataContext="{Binding UserList}"  Grid.Row="1"/>
     </Grid>
 </Window>

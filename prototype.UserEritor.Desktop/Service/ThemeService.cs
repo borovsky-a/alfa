@@ -17,16 +17,17 @@ namespace prototype.UserEritor.Desktop.Service
         {
             var greenThemeInfo  = new ThemeInfoDefinition("green_theme", "Зеленая тема", new Uri("/Themes/GreenTheme.xaml", UriKind.Relative));
             var whiteThemeInfo = new ThemeInfoDefinition("white_theme", "Белая тема", new Uri("/Themes/WhiteTheme.xaml", UriKind.Relative));
+            var redThemeInfo = new ThemeInfoDefinition("red_theme", "Красная тема", new Uri("/Themes/RedTheme.xaml", UriKind.Relative));
 
-            
-            _currentTheme = greenThemeInfo;
+            _currentTheme = whiteThemeInfo;
 
             _availableThemeCache = new Lazy<ReadOnlyCollection<ThemeInfoDefinition>>(() =>
             {
                 var list = new List<ThemeInfoDefinition>
                 {
+                    whiteThemeInfo,
                     greenThemeInfo,
-                    whiteThemeInfo
+                    redThemeInfo
                 };
 
                 var result = new ReadOnlyCollection<ThemeInfoDefinition>(list);

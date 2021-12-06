@@ -2,10 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:prototype.UserEritor.Desktop.Themes">
 
-    <SolidColorBrush x:Key="BackGroundColor" Color="#FFFFFF"></SolidColorBrush>
-    <SolidColorBrush x:Key="ForeGroundColor" Color="#000000"></SolidColorBrush>
+    <SolidColorBrush x:Key="BackGroundColor">#de2e21</SolidColorBrush>
+    <SolidColorBrush x:Key="ForeGroundColor" Color="#FFFFFF"/>
     <Style TargetType="Button">
         <Setter Property="Background" Value="{StaticResource BackGroundColor}"/>
         <Setter Property="Foreground" Value="{StaticResource ForeGroundColor}"/>
     </Style>
+    
 </ResourceDictionary>
