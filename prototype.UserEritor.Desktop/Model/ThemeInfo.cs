@@ -1,17 +1,16 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace prototype.UserEritor.Desktop
 {
     public class ThemeInfo
     {
-        public ThemeInfo(string name, string displayName, Uri path)
+        public ThemeInfo(IEnumerable<ThemeInfoDefinition> availableThemes, ThemeInfoDefinition currentTheme)
         {
-            Name = name;
-            DisplayName = displayName;
-            Path = path;
+            AvailableThemes = availableThemes;
+            CurrentTheme = currentTheme;
         }
-        public string Name { get; }
-        public string DisplayName { get; }
-        public Uri Path { get; }
+        public IEnumerable<ThemeInfoDefinition> AvailableThemes { get; }
+
+        public ThemeInfoDefinition CurrentTheme { get; }
     }
 }

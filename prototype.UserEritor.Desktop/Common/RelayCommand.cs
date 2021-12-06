@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace prototype.UserEritor.Desktop
 {
+    /// <summary>
+    ///     Реализация <see cref="ICommand"/>
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private readonly Action<object> _execute;
@@ -21,6 +25,7 @@ namespace prototype.UserEritor.Desktop
             remove => CommandManager.RequerySuggested -= value;
         }
 
+        [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
             return _canExecute(parameter);

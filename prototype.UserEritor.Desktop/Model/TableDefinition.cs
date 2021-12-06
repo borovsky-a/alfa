@@ -1,10 +1,8 @@
-﻿
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace prototype.UserEritor.Desktop
 {
-    public class TableDefinition<T> : BaseViewModel
+    public class TableDefinition<T> : PropertyChangedNotifier
     {
         private ObservableCollection<T> _rows;
         public ObservableCollection<TableColumnDefinition> _columns;

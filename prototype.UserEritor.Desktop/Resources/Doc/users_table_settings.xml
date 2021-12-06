@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<UserTableSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<TableSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <PageSize>50</PageSize>
   <NavCount>5</NavCount>
   <Columns>
-    <UserTableColumnsSettings>
+    <TableColumnsSettings>
       <IsVisible>true</IsVisible>
       <Order>0</Order>
       <TemplateName>Text</TemplateName>
@@ -11,8 +11,8 @@
       <Binding>Id</Binding>
       <Width>50</Width>
       <CanResize>false</CanResize>
-    </UserTableColumnsSettings>
-    <UserTableColumnsSettings>
+    </TableColumnsSettings>
+    <TableColumnsSettings>
       <IsVisible>true</IsVisible>
       <Order>0</Order>
       <TemplateName>Text</TemplateName>
@@ -20,8 +20,8 @@
       <Binding>FirstName</Binding>
       <Width>*</Width>
       <CanResize>false</CanResize>
-    </UserTableColumnsSettings>
-    <UserTableColumnsSettings>
+    </TableColumnsSettings>
+    <TableColumnsSettings>
       <IsVisible>true</IsVisible>
       <Order>0</Order>
       <TemplateName>Text</TemplateName>
@@ -29,8 +29,8 @@
       <Binding>LastName</Binding>
       <Width>*</Width>
       <CanResize>false</CanResize>
-    </UserTableColumnsSettings>
-    <UserTableColumnsSettings>
+    </TableColumnsSettings>
+    <TableColumnsSettings>
       <IsVisible>true</IsVisible>
       <Order>0</Order>
       <TemplateName>Text</TemplateName>
@@ -38,8 +38,8 @@
       <Binding>MiddleName</Binding>
       <Width>*</Width>
       <CanResize>false</CanResize>
-    </UserTableColumnsSettings>
-    <UserTableColumnsSettings>
+    </TableColumnsSettings>
+    <TableColumnsSettings>
       <IsVisible>true</IsVisible>
       <Order>0</Order>
       <TemplateName>Text</TemplateName>
@@ -47,8 +47,8 @@
       <Binding>PhoneNumber</Binding>
       <Width>*</Width>
       <CanResize>false</CanResize>
-    </UserTableColumnsSettings>
-    <UserTableColumnsSettings>
+    </TableColumnsSettings>
+    <TableColumnsSettings>
       <IsVisible>true</IsVisible>
       <Order>0</Order>
       <TemplateName>Text</TemplateName>
@@ -56,6 +56,6 @@
       <Binding>EmailAddress</Binding>
       <Width>*</Width>
       <CanResize>false</CanResize>
-    </UserTableColumnsSettings>
+    </TableColumnsSettings>
   </Columns>
-</UserTableSettings>
+</TableSettings>

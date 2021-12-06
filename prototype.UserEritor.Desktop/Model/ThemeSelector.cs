@@ -4,15 +4,15 @@ using System.Windows;
 
 namespace prototype.UserEritor.Desktop.Themes
 {
-    public class ThemeSelector : DependencyObject
+    public class ThemeSelector
     {
 
-        public static readonly DependencyProperty CurrentThemeDictionaryProperty = 
-            DependencyProperty.RegisterAttached("CurrentThemeDictionary", typeof(Uri), typeof(ThemeSelector), new UIPropertyMetadata(null, CurrentThemeDictionaryChanged));
+        public static readonly DependencyProperty ThemeProperty = 
+            DependencyProperty.RegisterAttached("Theme", typeof(Uri), typeof(ThemeSelector), new UIPropertyMetadata(null, CurrentThemeDictionaryChanged));
 
         public static Uri GetCurrentThemeDictionary(DependencyObject obj)
         {
-            return (Uri)obj.GetValue(CurrentThemeDictionaryProperty);
+            return (Uri)obj.GetValue(ThemeProperty);
         }         
 
         public static void SetCurrentThemeDictionary(Uri value)
@@ -22,7 +22,7 @@ namespace prototype.UserEritor.Desktop.Themes
 
         public static void SetCurrentThemeDictionary(DependencyObject obj, Uri value)
         {
-            obj.SetValue(CurrentThemeDictionaryProperty, value);
+            obj.SetValue(ThemeProperty, value);
         }
 
         private static void CurrentThemeDictionaryChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
@@ -38,15 +38,14 @@ namespace prototype.UserEritor.Desktop.Themes
             if (targetElement == null) return;
             if (dictionaryUri == null) return;
 
-            var existingDictionaries = targetElement.Resources.MergedDictionaries.OfType<ThemeDictionary>().ToList();
+            var existingDictionaries = targetElement.Resources.MergedDictionaries.OfType<ThemeResourceDictionary>().ToList();
 
             for (int i = 0; i < existingDictionaries.Count; i++)
-            {
-                var existingDictionary = existingDictionaries[i];              
-                targetElement.Resources.MergedDictionaries.Remove(existingDictionary);
+            {         
+                targetElement.Resources.MergedDictionaries.Remove(existingDictionaries[i]);
             }
 
-            var themeDictionary = new ThemeDictionary
+            var themeDictionary = new ThemeResourceDictionary
             {
                 Source = dictionaryUri
             };

@@ -1,7 +1,7 @@
 ﻿
 namespace prototype.UserEritor.Desktop
 {
-    public  class TableColumnDefinition : BaseViewModel
+    public  class TableColumnDefinition : PropertyChangedNotifier
     {
         private bool? _isVisible;
 

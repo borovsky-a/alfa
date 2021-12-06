@@ -7,8 +7,8 @@ namespace prototype.UserEritor.Desktop.Views
     public class ThemeSelectorViewModel : BaseViewModel
     {
         private readonly IThemeService _themeService;
-        private ThemeInfo _selectedTheme;
-        private ObservableCollection<ThemeInfo> _themes;
+        private ThemeInfoDefinition _selectedTheme;
+        private ObservableCollection<ThemeInfoDefinition> _themes;
 
         public ThemeSelectorViewModel(IThemeService themeService)
         {
@@ -16,7 +16,7 @@ namespace prototype.UserEritor.Desktop.Views
             Initialize();
         }
 
-        public ObservableCollection<ThemeInfo> Themes
+        public ObservableCollection<ThemeInfoDefinition> Themes
         {
             get { return _themes; }
             set
@@ -29,7 +29,7 @@ namespace prototype.UserEritor.Desktop.Views
             }
         }
 
-        public ThemeInfo SelectedTheme
+        public ThemeInfoDefinition SelectedTheme
         {
             get { return _selectedTheme; }
             set
@@ -46,7 +46,7 @@ namespace prototype.UserEritor.Desktop.Views
         {
             var currentThemeTask = _themeService.GetAvailableThemes().GetAwaiter().GetResult();
             SelectedTheme = currentThemeTask.Value.CurrentTheme;
-            Themes = new ObservableCollection<ThemeInfo>( currentThemeTask.Value.AvailableThemes);         
+            Themes = new ObservableCollection<ThemeInfoDefinition>( currentThemeTask.Value.AvailableThemes);         
         }
 
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -17,24 +17,24 @@ namespace prototype.UserEritor.Desktop.Service
         ///     эти настройки должны быть получены по идентификатору пользователя
         /// </summary>
         /// <returns></returns>
-        public async Task<IResponse<UserTableSettings>> GetUserSettingsAsync()
+        public async Task<IResponse<TableSettings>> GetUserSettingsAsync()
         {
             try
             {
                 var settings = ReadSettings();
-                return await Task.FromResult(new Response<UserTableSettings> { Value = settings });
+                return await Task.FromResult(new Response<TableSettings> { Value = settings });
             }
             catch (Exception ex)
             {
-                return new Response<UserTableSettings> { Description = ex.Message, IsValid = false };
+                return new Response<TableSettings> { Description = ex.Message, IsValid = false };
             }
         }
 
-        public async Task<IResponse<UserTableSettings>> SaveUserSettingsAsync(UserTableSettings settings)
+        public async Task<IResponse<TableSettings>> SaveUserSettingsAsync(TableSettings settings)
         {
             try
             {
-                var serializer = new XmlSerializer(typeof(UserTableSettings));
+                var serializer = new XmlSerializer(typeof(TableSettings));
                 var doc = new XDocument();
                 using (var writer = doc.CreateWriter())
                 {
@@ -42,24 +42,24 @@ namespace prototype.UserEritor.Desktop.Service
                 }
                 var value = doc.ToString();
                 File.WriteAllText(USERS_SETTINGS_FILE_PATH, value);
-                return await Task.FromResult(new Response<UserTableSettings> { Value = settings });
+                return await Task.FromResult(new Response<TableSettings> { Value = settings });
             }
             catch (Exception ex)
             {
-                return new Response<UserTableSettings> { Description = ex.Message, IsValid = false };
+                return new Response<TableSettings> { Description = ex.Message, IsValid = false };
             }
         }
 
-        private UserTableSettings ReadSettings(bool force = false)
+        private TableSettings ReadSettings(bool force = false)
         {
             try
             {
                 CreateSettingsIfNotExists(force);
-                var serializer = new XmlSerializer(typeof(UserTableSettings));
+                var serializer = new XmlSerializer(typeof(TableSettings));
 
                 using (var reader = XmlReader.Create(USERS_SETTINGS_FILE_PATH))
                 {
-                    var result = (UserTableSettings)serializer.Deserialize(reader);
+                    var result = (TableSettings)serializer.Deserialize(reader);
                     return result;
                 }
             }
@@ -83,9 +83,9 @@ namespace prototype.UserEritor.Desktop.Service
             }
         }
 
-        private void SaveChanges(UserTableSettings settings)
+        private void SaveChanges(TableSettings settings)
         {
-            var serializer = new XmlSerializer(typeof(UserTableSettings));
+            var serializer = new XmlSerializer(typeof(TableSettings));
             var doc = new XDocument();
             using (var writer = doc.CreateWriter())
             {

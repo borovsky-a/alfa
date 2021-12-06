@@ -135,29 +135,29 @@
     <Compile Include="Common\IPagingListService.cs" />
     <Compile Include="Common\IResponse.cs" />
     <Compile Include="Common\PagingRequest.cs" />
+    <Compile Include="Common\PropertyChangedNotifier.cs" />
     <Compile Include="Common\Response.cs" />
     <Compile Include="Common\TableViewModel.cs" />
-    <Compile Include="Controls\TableColumnTemplateName.cs" />
-    <Compile Include="Controls\TableDefinition.cs" />
-    <Compile Include="Controls\TablePagingDefinition.cs" />
+    <Compile Include="Model\TableColumnTemplateName.cs" />
+    <Compile Include="Model\TableDefinition.cs" />
+    <Compile Include="Model\TablePagingDefinition.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\NullToCollapsedConverter.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserListRequest.cs" />
-    <Compile Include="Data\UserTableColumnsSettings.cs" />
-    <Compile Include="Data\UserTableSettings.cs" />
+    <Compile Include="Model\TableColumnsSettings.cs" />
+    <Compile Include="Model\TableSettings.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="Model\ApplicationThemeInfo.cs" />
     <Compile Include="Model\ThemeInfo.cs" />
+    <Compile Include="Model\ThemeInfoDefinition.cs" />
     <Compile Include="Service\IThemeService.cs" />
     <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\IUserSettingsService.cs" />
     <Compile Include="Service\ThemeService.cs" />
     <Compile Include="Service\UserSettingsService.cs" />
     <Compile Include="Service\UserService.cs" />
-    <Compile Include="Themes\ThemeSelector.cs" />
-    <Compile Include="Themes\ThemeDictionary.cs" />
-    <Compile Include="Utils\VisibilityHelper.cs" />
+    <Compile Include="Model\ThemeSelector.cs" />
+    <Compile Include="Model\ThemeResourceDictionary.cs" />
     <Compile Include="Views\Dialogs\CreateUserDialog.xaml.cs">
       <DependentUpon>CreateUserDialog.xaml</DependentUpon>
     </Compile>
@@ -183,8 +183,8 @@
     </Compile>
     <Compile Include="Common\BaseViewModel.cs" />
     <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Controls\TableColumnDefinition.cs" />
-    <Compile Include="Controls\TableColumnDependencyProperty.cs" />
+    <Compile Include="Model\TableColumnDefinition.cs" />
+    <Compile Include="Model\TableProperties.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

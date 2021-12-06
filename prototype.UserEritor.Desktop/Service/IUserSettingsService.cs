@@ -5,7 +5,7 @@ namespace prototype.UserEritor.Desktop.Service
 {
     public interface IUserSettingsService
     {
-        Task<IResponse<UserTableSettings>> GetUserSettingsAsync();
-        Task<IResponse<UserTableSettings>> SaveUserSettingsAsync(UserTableSettings settings);
+        Task<IResponse<TableSettings>> GetUserSettingsAsync();
+        Task<IResponse<TableSettings>> SaveUserSettingsAsync(TableSettings settings);
     }
 }

@@ -5,6 +5,10 @@ using System.Windows.Input;
 
 namespace prototype.UserEritor.Desktop
 {
+    /// <summary>
+    ///     Базовое представление для отображения списков
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class TableViewModel<T> : BaseViewModel
     {
        
@@ -18,18 +22,35 @@ namespace prototype.UserEritor.Desktop
             Paging = new TablePagingDefinition(RefreshCommand);      
         }
 
+        /// <summary>
+        ///     Описание таблицы
+        /// </summary>
         public virtual TableDefinition<T> Table { get; }
 
+        /// <summary>
+        ///     Описание навигации
+        /// </summary>
         public virtual TablePagingDefinition Paging { get; }
 
+        /// <summary>
+        ///     Команда обновления списка
+        /// </summary>
         public abstract ICommand RefreshCommand { get; }
 
+        /// <summary>
+        ///     Команда удаления записи
+        /// </summary>
         public abstract ICommand DeleteRecordCommand { get; }
 
+        /// <summary>
+        ///     Команда создания записи
+        /// </summary>
         public abstract ICommand CreateRecordCommand { get; }
 
 
-        
+        /// <summary>
+        ///     Сообщение о последнем действии
+        /// </summary>
         public string LastResult
         {
             get { return _lastResult; }
@@ -43,6 +64,9 @@ namespace prototype.UserEritor.Desktop
             }
         }
 
+        /// <summary>
+        ///     Если true, то последнее действие завершилось ошибкой
+        /// </summary>
         public bool IsError
         {
             get { return _isError; }
@@ -56,6 +80,9 @@ namespace prototype.UserEritor.Desktop
             }
         }
 
+        /// <summary>
+        ///     Элемент списка на котором стоит курсор
+        /// </summary>
         public T SelectedItem
         {
             get { return _selectedItem; }
@@ -68,6 +95,12 @@ namespace prototype.UserEritor.Desktop
                 }
             }
         }
+
+
+        /// <summary>
+        ///    Применение ответа от сервера
+        /// </summary>
+        /// <param name="response"></param>
         protected virtual void ApplyResponse(IPagingResponse<T> response)
         {
             var value = response.Value;
@@ -88,7 +121,11 @@ namespace prototype.UserEritor.Desktop
             Paging.TotalRecordCount = response.TotalRecordCount;
         }
 
-        protected virtual void ApplySettings(UserTableSettings settings)
+        /// <summary>
+        ///     Применение настроек таблицы
+        /// </summary>
+        /// <param name="settings"></param>
+        protected virtual void ApplySettings(TableSettings settings)
         {
             Paging.PageSize = settings.PageSize;
             Paging.NavsCount = settings.NavCount;

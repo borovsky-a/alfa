@@ -1,7 +1,7 @@
 ﻿
-namespace prototype.UserEritor.Desktop.Data
+namespace prototype.UserEritor.Desktop
 {
-    public class UserTableColumnsSettings
+    public class TableColumnsSettings
     {
         public bool? IsVisible { get; set; } = true;
 

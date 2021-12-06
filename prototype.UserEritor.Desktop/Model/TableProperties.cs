@@ -1,5 +1,4 @@
-﻿using prototype.UserEritor.Desktop.Utils;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,7 +6,7 @@ using System.Windows.Data;
 
 namespace prototype.UserEritor.Desktop
 {
-    public static class DataGridExtension
+    public static class TableProperties
     {
         public static ObservableCollection<DataGridColumn> GetColumns(DependencyObject d)
         {
@@ -22,7 +21,7 @@ namespace prototype.UserEritor.Desktop
         public static readonly DependencyProperty ColumnsProperty =
                DependencyProperty.RegisterAttached("Columns",
                typeof(ObservableCollection<TableColumnDefinition>),
-               typeof(DataGridExtension),
+               typeof(TableProperties),
                new UIPropertyMetadata(new ObservableCollection<TableColumnDefinition>(),
                OnDataGridColumnsPropertyChanged));
 
@@ -91,12 +90,29 @@ namespace prototype.UserEritor.Desktop
                 default:
                     result = new DataGridTemplateColumn();
                     break;
+            }          
+      
+            switch (model.IsVisible)
+            {
+                case true:
+                    result.Visibility = Visibility.Visible;
+                    break;
+                case false:
+                    result.Visibility = Visibility.Hidden;
+                    break;
+                case null:
+                    result.Visibility = Visibility.Collapsed;
+                    break;
+                default:
+                    break;
             }
 
+
             result.Header = model.Header;
-            result.Visibility = VisibilityHelper.BooleanToVisibility(model.IsVisible);
             result.CanUserResize = model.CanResize;
             result.CanUserSort = false;
+
+
             if (double.TryParse(model.Width, out var width))
             {
                 result.Width = new DataGridLength(width);

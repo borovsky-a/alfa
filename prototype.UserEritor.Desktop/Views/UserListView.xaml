@@ -12,7 +12,7 @@
     <UserControl.Resources>
         <Style TargetType="DataGrid" x:Key="TableDefinition">
             <Setter Property="AutoGenerateColumns" Value="false" />
-            <Setter Property="common:DataGridExtension.Columns" Value="{Binding Columns }" />
+            <Setter Property="common:TableProperties.Columns" Value="{Binding Columns }" />
             <Setter Property="ItemsSource" Value="{Binding Rows, Mode=TwoWay}" />
             <Setter Property="IsReadOnly" Value="{Binding IsReadOnly}"/>           
         </Style>
@@ -65,10 +65,10 @@
                   SelectionMode="Single" 
                   SelectedItem="{Binding  SelectedItem,  UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False"
-                  common:DataGridExtension.Columns="{Binding Table.Columns}"
+                  common:TableProperties.Columns="{Binding Table.Columns}"
                   ItemsSource="{Binding Table.Rows}"
                   IsReadOnly="{Binding Table.IsReadOnly}"
                   />
-        <local:Pagination Grid.Row="3" DataContext="{Binding Paging}" HorizontalAlignment="Right"></local:Pagination>
+        <local:Pagination Grid.Row="3" DataContext="{Binding Paging}" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>
